@@ -527,7 +527,7 @@ abstract class User implements UserInterface, GroupableInterface
     /**
      * {@inheritdoc}
      */
-    public function hasGroup($name)
+    public function userHasGroup($name)
     {
         return in_array($name, $this->getGroupNames());
     }

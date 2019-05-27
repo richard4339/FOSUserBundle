@@ -39,7 +39,7 @@ interface GroupableInterface
      *
      * @return bool
      */
-    public function hasGroup($name);
+    public function userHasGroup($name);
 
     /**
      * Add a group to the user groups.

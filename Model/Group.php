@@ -48,7 +48,7 @@ abstract class Group implements GroupInterface
      */
     public function addRole($role)
     {
-        if (!$this->userHasRole($role)) {
+        if (!$this->hasRole($role)) {
             $this->roles[] = strtoupper($role);
         }
 
@@ -74,7 +74,7 @@ abstract class Group implements GroupInterface
     /**
      * {@inheritdoc}
      */
-    public function userHasRole($role)
+    public function hasRole($role)
     {
         return in_array(strtoupper($role), $this->roles, true);
     }

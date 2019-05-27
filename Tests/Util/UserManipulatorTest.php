@@ -49,7 +49,7 @@ class UserManipulatorTest extends TestCase
         $this->assertSame($password, $user->getPlainPassword());
         $this->assertSame($email, $user->getEmail());
         $this->assertSame($active, $user->isEnabled());
-        $this->assertSame($superadmin, $user->isSuperAdmin());
+        $this->assertSame($superadmin, $user->userIsSuperAdmin());
     }
 
     public function testActivateWithValidUsername()
@@ -167,7 +167,7 @@ class UserManipulatorTest extends TestCase
 
         $user = new TestUser();
         $user->setUsername($username);
-        $user->setSuperAdmin(false);
+        $user->userSetSuperAdmin(false);
 
         $userManagerMock->expects($this->once())
             ->method('findUserByUsername')
@@ -187,7 +187,7 @@ class UserManipulatorTest extends TestCase
         $manipulator->promote($username);
 
         $this->assertSame($username, $user->getUsername());
-        $this->assertTrue($user->isSuperAdmin());
+        $this->assertTrue($user->userIsSuperAdmin());
     }
 
     /**
@@ -221,7 +221,7 @@ class UserManipulatorTest extends TestCase
 
         $user = new TestUser();
         $user->setUsername($username);
-        $user->setSuperAdmin(true);
+        $user->userSetSuperAdmin(true);
 
         $userManagerMock->expects($this->once())
             ->method('findUserByUsername')
@@ -241,7 +241,7 @@ class UserManipulatorTest extends TestCase
         $manipulator->demote($username);
 
         $this->assertSame($username, $user->getUsername());
-        $this->assertFalse($user->isSuperAdmin());
+        $this->assertFalse($user->userIsSuperAdmin());
     }
 
     /**

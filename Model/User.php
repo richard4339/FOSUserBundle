@@ -328,7 +328,7 @@ abstract class User implements UserInterface, GroupableInterface
     /**
      * {@inheritdoc}
      */
-    public function isSuperAdmin()
+    public function userIsSuperAdmin()
     {
         return $this->hasRole(static::ROLE_SUPER_ADMIN);
     }
@@ -419,7 +419,7 @@ abstract class User implements UserInterface, GroupableInterface
     /**
      * {@inheritdoc}
      */
-    public function setSuperAdmin($boolean)
+    public function userSetSuperAdmin($boolean)
     {
         if (true === $boolean) {
             $this->addRole(static::ROLE_SUPER_ADMIN);

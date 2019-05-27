@@ -124,7 +124,7 @@ interface FosUserInterface extends \Serializable
      *
      * @return bool
      */
-    public function isSuperAdmin();
+    public function userIsSuperAdmin();
 
     /**
      * @param bool $boolean
@@ -140,7 +140,7 @@ interface FosUserInterface extends \Serializable
      *
      * @return static
      */
-    public function setSuperAdmin($boolean);
+    public function userSetSuperAdmin($boolean);
 
     /**
      * Gets the confirmation token.

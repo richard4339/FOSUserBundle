@@ -39,7 +39,7 @@ interface GroupInterface
      *
      * @return bool
      */
-    public function hasRole($role);
+    public function userHasRole($role);
 
     /**
      * @return array

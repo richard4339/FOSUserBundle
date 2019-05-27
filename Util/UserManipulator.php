@@ -75,7 +75,7 @@ class UserManipulator
         $user->setEmail($email);
         $user->setPlainPassword($password);
         $user->setEnabled((bool) $active);
-        $user->setSuperAdmin((bool) $superadmin);
+        $user->userSetSuperAdmin((bool) $superadmin);
         $this->userManager->updateUser($user);
 
         $event = new UserEvent($user, $this->getRequest());
@@ -138,7 +138,7 @@ class UserManipulator
     public function promote($username)
     {
         $user = $this->findUserByUsernameOrThrowException($username);
-        $user->setSuperAdmin(true);
+        $user->userSetSuperAdmin(true);
         $this->userManager->updateUser($user);
 
         $event = new UserEvent($user, $this->getRequest());
@@ -153,7 +153,7 @@ class UserManipulator
     public function demote($username)
     {
         $user = $this->findUserByUsernameOrThrowException($username);
-        $user->setSuperAdmin(false);
+        $user->userSetSuperAdmin(false);
         $this->userManager->updateUser($user);
 
         $event = new UserEvent($user, $this->getRequest());
